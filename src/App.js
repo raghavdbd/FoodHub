@@ -9,6 +9,7 @@ import About from "./Components/About"
 import Error from "./Components/Error"
 
 import { Outlet } from "react-router-dom";
+import RestaurentMenu from "./Components/RestaurentMenu";
 
 // SPA => Single Page Application
 
@@ -50,6 +51,12 @@ children:[
 {
     path:"/about",
     element:<About />
+
+
+},
+{
+  path:"/restaurent/:id",
+  element:<RestaurentMenu />
 
 
 }

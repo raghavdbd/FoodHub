@@ -703,3 +703,4 @@
         "subtype": "basic"
       }
 ]
+export const IMG_CDN_URL1="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"

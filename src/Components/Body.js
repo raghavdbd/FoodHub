@@ -2,6 +2,7 @@ import RestaurentCard from "./RestaurantCard"
 import {Restrurentlist} from "../Constant"
 import { useState,useEffect } from "react"
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
  function filter(searchtxt,restaurants){
     const filterdata = restaurants.filter((restaurant) =>
     restaurant?.info?.name?.toLowerCase()?.includes(searchtxt.toLowerCase())
@@ -32,7 +33,7 @@ const Body=()=>{
    )
 
    const json = await data.json();
-   console.log(json)
+
 //    opetional chaining
 //   setallrestaurent(json?.data?.cards[0]?.data?.data?.cards);
 
@@ -77,9 +78,11 @@ if(!restaurants) return null;
 <div className="flex flex-wrap px-5 ">
     {
         filterrestaurant.map(restaurant=>{
-        return  (filterrestaurant.length===0)? <Shimmer />  : < RestaurentCard className="px-10" {...restaurant?.info} key={restaurant?.info?.id} />
+        return(
+             <Link to={"/restaurent/"+ restaurant?.info?.id }  key={restaurant?.info?.id} >
+            < RestaurentCard className="px-10" {...restaurant?.info} /></Link> 
 
-        })
+        )})
     }
 
 
