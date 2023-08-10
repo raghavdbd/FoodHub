@@ -2,23 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Shimmer from './Shimmer'
 import {IMG_CDN_URL1} from '../Constant'
+import useRestaurent from '../util/useRestaurent'
+
+
+// this functional component will be for restaurent menu 
 
 const RestaurentMenu = () => {
   //  how to read a dynamic url
    const {id}=useParams();
-   const [restaurent,setrestaurent]=useState({});
+   // here we have create a custom hook
+   const restaurent=useRestaurent(id);
    
-   useEffect(()=>{
-getRestaurentinfo()
-
-   },[])
-   async function getRestaurentinfo(){
-
-    const data= await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId="+id+"&catalog_qa=undefined&submitAction=ENTER");
-      const json= await data.json();
-      console.log(json.data)
-      setrestaurent(json?.data?.cards[0]?.card?.card?.info)
-   }if(!restaurent){
+   if(!restaurent){
     return <Shimmer.js />
    }
 
