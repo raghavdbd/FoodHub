@@ -60,10 +60,6 @@ children:[
   element:<RestaurentMenu />
 
 
-},{
-  path:"/instamart",
-    element:<Instamart />
-
 }
 
 ]
