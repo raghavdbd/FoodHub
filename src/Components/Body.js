@@ -3,7 +3,11 @@ import {Restrurentlist} from "../Constant"
 import { useState,useEffect } from "react"
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
- function filter(searchtxt,restaurants){
+import useonline from "../util/useonline";
+ 
+
+
+function filter(searchtxt,restaurants){
     const filterdata = restaurants.filter((restaurant) =>
     restaurant?.info?.name?.toLowerCase()?.includes(searchtxt.toLowerCase())
     );
@@ -29,7 +33,7 @@ const Body=()=>{
  async function getRestrurent(){
     let data=await fetch(
     
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+        "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING"
    )
 
    const json = await data.json();
@@ -50,7 +54,16 @@ setrestaurent(
 //     setFilteredrestaurants(json?.data?.cards[2]?.data?.data?.cards);
 
 }
+// create a hook for use online
+const isonline= useonline();
+
+if(!isonline){
+  return   <h1> OOPs check your internet Connection</h1>
+}
+
+
 if(!restaurants) return null;
+
 
  
 

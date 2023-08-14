@@ -14,6 +14,7 @@ return(
                <Link to="/about"><li className="px-8 hover:bg-sky-100">About</li></Link> 
                <Link to="/contact"><li className="px-8 hover:bg-sky-100">Contact</li></Link> 
                 <li className="px-8 hover:bg-sky-100">Cart</li>
+                <Link to="/instamart"><li className="px-8 hover:bg-sky-100">Instamart</li></Link> 
             </ul>
         </div>
     </div>

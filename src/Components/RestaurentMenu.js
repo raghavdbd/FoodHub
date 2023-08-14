@@ -11,7 +11,10 @@ const RestaurentMenu = () => {
   //  how to read a dynamic url
    const {id}=useParams();
    // here we have create a custom hook
+  
    const restaurent=useRestaurent(id);
+
+   
    
    if(!restaurent){
     return <Shimmer.js />
@@ -24,7 +27,7 @@ const RestaurentMenu = () => {
       <h3>{restaurent.avgRating}</h3>
       <h3>{restaurent.city}</h3>
       <h4>{restaurent.costForTwoMessage}</h4>
-<h5>{restaurent.cuisines?.join(",")}</h5>
+      <h5>{restaurent.cuisines?.join(",")}</h5>
     </div>
   )
 }
