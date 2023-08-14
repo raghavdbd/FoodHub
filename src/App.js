@@ -10,7 +10,7 @@ import Error from "./Components/Error"
 
 import { Outlet } from "react-router-dom";
 import RestaurentMenu from "./Components/RestaurentMenu";
-import Instamart from "./Components/instamart";
+
 
 // SPA => Single Page Application
 
