@@ -12,20 +12,25 @@ import { Outlet } from "react-router-dom";
 import RestaurentMenu from "./Components/RestaurentMenu";
 
 
+
 // SPA => Single Page Application
 
 
 
 const Applayout=()=>{
     return(
+
         <>
    <Header />
    {/*  in outlet all the children will fill according to router */}
   {/* <Body /> */}
   <Outlet />
    <Footer />
+   
 
    </>
+   
+
 
 
    )
