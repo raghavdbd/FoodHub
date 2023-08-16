@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import Shimmer from './Shimmer'
 import {IMG_CDN_URL1,MENU_ITEM_IMAGE} from '../Constant'
 import useRestaurent from '../util/useRestaurent'
+import { addItem } from '../util/CartSlice'
+import { useDispatch } from 'react-redux'
 
 
 // this functional component will be for restaurent menu 
@@ -20,6 +22,11 @@ const RestaurentMenu = () => {
    
    if(!restaurent){
     return <Shimmer.js />
+   }
+   const dispatch=useDispatch();
+   const handleaddItem=(item)=>{
+     dispatch(addItem(item));
+
    }
 
   return (
@@ -71,7 +78,7 @@ const RestaurentMenu = () => {
                className ='h-20 w-25'src={item?.imageId ? MENU_ITEM_IMAGE + item?.imageId : ""}
              
             />
-            <button className="p-1 m-1">Add</button>
+            <button className="p-1 m-1 bg-green-100" onClick={()=>handleaddItem(item)}>Add</button>
           </div>
           </div>
          

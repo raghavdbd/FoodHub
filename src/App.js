@@ -7,25 +7,30 @@ import { RouterProvider, createBrowserRouter,Outlet } from "react-router-dom";
 import Contact from "./Components/Contact"
 import About from "./Components/About"
 import Error from "./Components/Error"
+import Cart from "./Components/Cart"
 
 import { Outlet } from "react-router-dom";
 import RestaurentMenu from "./Components/RestaurentMenu";
+import { Provider } from "react-redux";
+import store from "./util/store";
 
 
 
 // SPA => Single Page Application
 
-
+//  store is props 
 
 const Applayout=()=>{
     return(
 
         <>
+        <Provider store={store} >
    <Header />
    {/*  in outlet all the children will fill according to router */}
   {/* <Body /> */}
   <Outlet />
    <Footer />
+   </Provider>
    
 
    </>
@@ -65,6 +70,10 @@ children:[
   element:<RestaurentMenu />
 
 
+},
+{
+  path:'/cart',
+  element:<Cart />
 }
 
 ]
